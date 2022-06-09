@@ -84,9 +84,11 @@ class _AjustesState extends State<Ajustes> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(
-                      userFoto,
-                      width: MediaQuery.of(context).size.width * 0.4,
+                    CircleAvatar(
+                      radius: 60,
+                      backgroundImage: NetworkImage(
+                        userFoto
+                      ),
                     ),
                     IconButton(
                         onPressed: () async {
