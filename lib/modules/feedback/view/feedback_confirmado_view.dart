@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:team_meet/modules/main/view/main_view.dart';
+import 'package:team_meet/modules/settings/view/ajustes_view.dart';
 
 class FeedBackSucesso extends StatelessWidget {
   const FeedBackSucesso({Key? key}) : super(key: key);
@@ -8,7 +10,7 @@ class FeedBackSucesso extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        Get.back()
+        Get.off(const Main())
       },
       child: Scaffold(
         backgroundColor: Theme.of(context).colorScheme.primary,

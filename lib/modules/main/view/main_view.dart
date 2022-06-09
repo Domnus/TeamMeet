@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:team_meet/modules/feedback/view/feedback_view.dart';
+import 'package:team_meet/modules/messages/view/home_screen.dart';
 import 'package:team_meet/modules/perfil/view/perfil_view.dart';
 import '../../agenda/view/agenda_view.dart';
 import '../../settings/view/ajustes_view.dart';
@@ -16,14 +16,14 @@ class _MainState extends State<Main> with SingleTickerProviderStateMixin {
 
   static final List _views = [
     const Perfil(),
-    FeedbackJogador(),
+    Messages(),
     const Agenda(),
     const Ajustes()
     ];
 
   static const List<Widget> _viewsTitle = <Widget>[
     Text("Perfil", style: TextStyle(color: Colors.white, fontSize: 24)),
-    Text("Feedback", style: TextStyle(color: Colors.white, fontSize: 24)),
+    Text("Mensagens", style: TextStyle(color: Colors.white, fontSize: 24)),
     Text("Agenda", style: TextStyle(color: Colors.white, fontSize: 24)),
     Text("Ajustes", style: TextStyle(color: Colors.white, fontSize: 24))
   ];

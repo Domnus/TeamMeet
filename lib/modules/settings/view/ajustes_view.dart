@@ -5,6 +5,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:team_meet/modules/feedback/view/feedback_view.dart';
 import 'package:team_meet/modules/login/view/login_view.dart';
 
 import '../../../data/get_user.dart';
@@ -277,7 +278,8 @@ class _AjustesState extends State<Ajustes> {
                                           const TextStyle(color: Colors.black)),
                                   onSubmitted: (date) async {
                                     if (date.isNotEmpty) {
-                                      var inputDate = inputDateFormat.parse(date);
+                                      var inputDate =
+                                          inputDateFormat.parse(date);
 
                                       bool success = await saveData(
                                           'data',
@@ -310,18 +312,16 @@ class _AjustesState extends State<Ajustes> {
                                         ));
                                       }
                                     } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(SnackBar(
-                                          content: Text(
-                                              'Insira uma data!',
-                                              style: TextStyle(
-                                                  color: Theme.of(context)
-                                                      .colorScheme
-                                                      .secondary)),
-                                          duration: const Duration(
-                                              milliseconds: 1500),
-                                        ));
-
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                        content: Text('Insira uma data!',
+                                            style: TextStyle(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .secondary)),
+                                        duration:
+                                            const Duration(milliseconds: 1500),
+                                      ));
                                     }
                                   },
                                 ),
@@ -366,51 +366,53 @@ class _AjustesState extends State<Ajustes> {
                             ),
                           ),
                         ),
-                        //Padding(
-                        //  padding: const EdgeInsets.all(8.0),
-                        //  child: Container(
-                        //    height: 90,
-                        //    decoration: BoxDecoration(
-                        //      borderRadius: BorderRadius.circular(10),
-                        //      color: const Color(0xFFd9d9d9),
-                        //      boxShadow: [
-                        //        BoxShadow(
-                        //            color: Colors.grey.withOpacity(0.8),
-                        //            spreadRadius: 2,
-                        //            blurRadius: 4,
-                        //            offset: const Offset(0.0, 1.75))
-                        //      ],
-                        //    ),
-                        //    child: ElevatedButton(
-                        //        style: ButtonStyle(
-                        //            shape: MaterialStateProperty.all<
-                        //                    RoundedRectangleBorder>(
-                        //                RoundedRectangleBorder(
-                        //                    borderRadius:
-                        //                        BorderRadius.circular(10))),
-                        //            backgroundColor:
-                        //                MaterialStateProperty.all<Color>(
-                        //                    const Color(0xFFd9d9d9)),
-                        //            minimumSize:
-                        //                MaterialStateProperty.all<Size>(
-                        //                    const Size.fromHeight(90))),
-                        //        child: Row(
-                        //          children: const [
-                        //            Text('Trocar de organização',
-                        //                style: TextStyle(
-                        //                    color: Colors.black,
-                        //                    fontSize: 24,
-                        //                    fontWeight: FontWeight.bold)),
-                        //            Padding(
-                        //              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
-                        //              child: Icon(Icons.arrow_forward_ios,
-                        //                  color: Colors.black),
-                        //            )
-                        //          ],
-                        //        ),
-                        //        onPressed: () {}),
-                        //  ),
-                        //),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 90,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color(0xFFd9d9d9),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.8),
+                                    spreadRadius: 2,
+                                    blurRadius: 4,
+                                    offset: const Offset(0.0, 1.75))
+                              ],
+                            ),
+                            child: ElevatedButton(
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            const Color(0xFFd9d9d9)),
+                                    minimumSize:
+                                        MaterialStateProperty.all<Size>(
+                                            const Size.fromHeight(90))),
+                                child: Row(
+                                  children: const [
+                                    Text('Feedback',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold)),
+                                    Padding(
+                                      padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                      child: Icon(Icons.arrow_forward_ios,
+                                          color: Colors.black),
+                                    )
+                                  ],
+                                ),
+                                onPressed: () {
+                                  Get.to(FeedbackJogador());
+                                }),
+                          ),
+                        ),
                       ],
                     ),
                   ),
