@@ -6,6 +6,7 @@ import 'package:supabase/supabase.dart';
 import 'modules/login/view/login_view.dart';
 import 'modules/main/view/main_view.dart';
 import 'themes/main_theme.dart';
+import 'package:flutter/services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +19,9 @@ Future<void> main() async {
 
   GetIt getIt = GetIt.instance;
 
-  getIt.registerSingleton<SupabaseClient>(
-      SupabaseClient(supabaseUrl, supabaseKey));
+  getIt.registerSingleton<SupabaseClient>(SupabaseClient(supabaseUrl, supabaseKey));
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
 
   if (isLoggedIn) {
     runApp(
