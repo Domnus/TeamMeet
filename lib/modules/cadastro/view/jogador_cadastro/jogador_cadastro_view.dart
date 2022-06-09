@@ -119,7 +119,7 @@ class _JogadorCadastroState extends State<JogadorCadastro> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.40,
                                 child: Scrollbar(
-                                  isAlwaysShown: true,
+                                  thumbVisibility: true,
                                   child: NotificationListener<
                                       OverscrollIndicatorNotification>(
                                     onNotification:

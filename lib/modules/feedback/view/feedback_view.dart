@@ -43,7 +43,7 @@ class FeedbackJogador extends StatelessWidget {
                     animate: true,
                     animationDuration: 300,
                     inactiveBgColor: Colors.grey[400],
-                    labels: ['Ruim', 'Bom', 'Ótimo'],
+                    labels: const ['Ruim', 'Bom', 'Ótimo'],
                   ),
                 ),
                 const Padding(
@@ -65,7 +65,7 @@ class FeedbackJogador extends StatelessWidget {
                     animate: true,
                     animationDuration: 300,
                     inactiveBgColor: Colors.grey[400],
-                    labels: ['Ruim', 'Bom', 'Ótimo'],
+                    labels: const ['Ruim', 'Bom', 'Ótimo'],
                   ),
                 ),
                 const Padding(

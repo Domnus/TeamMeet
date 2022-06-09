@@ -77,47 +77,49 @@ class _AjustesState extends State<Ajustes> {
             final usuario = snapshot.data as Usuario;
             userFoto = usuario.foto;
 
-            return SingleChildScrollView(
-                child: Column(
+            return ListView(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      radius: 60,
-                      backgroundImage: NetworkImage(
-                        userFoto,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage: NetworkImage(
+                          userFoto,
+                        ),
                       ),
-                    ),
-                    IconButton(
-                        onPressed: () async {
-                          bool success = await _getFromGallery();
-
-                          if (success) {
-                            setState(() {});
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text('Foto atualizada com sucesso!',
-                                  style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary)),
-                              duration: const Duration(milliseconds: 1500),
-                            ));
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(
-                                  'Ocorreu um erro! Tente novamente mais tarde.',
-                                  style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary)),
-                              duration: const Duration(milliseconds: 1500),
-                            ));
-                          }
-                        },
-                        icon: const Icon(Icons.mode_edit),
-                        color: Colors.black),
-                  ],
+                      IconButton(
+                          onPressed: () async {
+                            bool success = await _getFromGallery();
+            
+                            if (success) {
+                              setState(() {});
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text('Foto atualizada com sucesso!',
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary)),
+                                duration: const Duration(milliseconds: 1500),
+                              ));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text(
+                                    'Ocorreu um erro! Tente novamente mais tarde.',
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary)),
+                                duration: const Duration(milliseconds: 1500),
+                              ));
+                            }
+                          },
+                          icon: const Icon(Icons.mode_edit),
+                          color: Colors.black),
+                    ],
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.all(8),
@@ -192,7 +194,7 @@ class _AjustesState extends State<Ajustes> {
                                   ),
                                   onSubmitted: (nome) async {
                                     bool success = await saveData('nome', nome);
-
+            
                                     if (success) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(SnackBar(
@@ -280,7 +282,7 @@ class _AjustesState extends State<Ajustes> {
                                   onSubmitted: (date) async {
                                     if (date.isNotEmpty) {
                                       var inputDate = inputDateFormat.parse(date);
-
+            
                                       bool success = await saveData(
                                           'data',
                                           dateFormat
@@ -323,96 +325,14 @@ class _AjustesState extends State<Ajustes> {
                                           duration: const Duration(
                                               milliseconds: 1500),
                                         ));
-
+            
                                     }
                                   },
                                 ),
-                                //   firstDate: DateTime.utc(1900, 01, 01),
-                                //   lastDate: DateTime.now(),
-                                //   onDateSubmitted: (date) async {
-                                //     String ano = date.year.toString();
-                                //     String mes = date.month.toString();
-                                //     String dia = date.day.toString();
-
-                                //     bool success = await saveData(
-                                //         'data', ano + '-' + mes + '-' + dia);
-
-                                //     if (success) {
-                                //       ScaffoldMessenger.of(context)
-                                //           .showSnackBar(SnackBar(
-                                //         content: Text(
-                                //             'Nome atualizado com sucesso!',
-                                //             style: TextStyle(
-                                //                 color: Theme.of(context)
-                                //                     .colorScheme
-                                //                     .secondary)),
-                                //         duration:
-                                //             const Duration(milliseconds: 1500),
-                                //       ));
-                                //     } else {
-                                //       ScaffoldMessenger.of(context)
-                                //           .showSnackBar(SnackBar(
-                                //         content: Text(
-                                //             'Ocorreu um erro! Tente novamente mais tarde.',
-                                //             style: TextStyle(
-                                //                 color: Theme.of(context)
-                                //                     .colorScheme
-                                //                     .secondary)),
-                                //         duration:
-                                //             const Duration(milliseconds: 1500),
-                                //       ));
-                                //     }
-                                //   },
-                                // )
                               ],
                             ),
                           ),
                         ),
-                        //Padding(
-                        //  padding: const EdgeInsets.all(8.0),
-                        //  child: Container(
-                        //    height: 90,
-                        //    decoration: BoxDecoration(
-                        //      borderRadius: BorderRadius.circular(10),
-                        //      color: const Color(0xFFd9d9d9),
-                        //      boxShadow: [
-                        //        BoxShadow(
-                        //            color: Colors.grey.withOpacity(0.8),
-                        //            spreadRadius: 2,
-                        //            blurRadius: 4,
-                        //            offset: const Offset(0.0, 1.75))
-                        //      ],
-                        //    ),
-                        //    child: ElevatedButton(
-                        //        style: ButtonStyle(
-                        //            shape: MaterialStateProperty.all<
-                        //                    RoundedRectangleBorder>(
-                        //                RoundedRectangleBorder(
-                        //                    borderRadius:
-                        //                        BorderRadius.circular(10))),
-                        //            backgroundColor:
-                        //                MaterialStateProperty.all<Color>(
-                        //                    const Color(0xFFd9d9d9)),
-                        //            minimumSize:
-                        //                MaterialStateProperty.all<Size>(
-                        //                    const Size.fromHeight(90))),
-                        //        child: Row(
-                        //          children: const [
-                        //            Text('Trocar de organização',
-                        //                style: TextStyle(
-                        //                    color: Colors.black,
-                        //                    fontSize: 24,
-                        //                    fontWeight: FontWeight.bold)),
-                        //            Padding(
-                        //              padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
-                        //              child: Icon(Icons.arrow_forward_ios,
-                        //                  color: Colors.black),
-                        //            )
-                        //          ],
-                        //        ),
-                        //        onPressed: () {}),
-                        //  ),
-                        //),
                       ],
                     ),
                   ),
@@ -458,8 +378,8 @@ class _AjustesState extends State<Ajustes> {
                         }),
                   ),
                 ),
-              ],
-            ));
+            ]
+          );
         }
         return const Text('');
       },
