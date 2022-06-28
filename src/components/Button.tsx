@@ -8,7 +8,7 @@ interface Props {
 	textStyle: {}
 }
 
-export function Button({ title, onPressed, buttonStyle, textStyle } : Props) {
+export default function Button({ title, onPressed, buttonStyle, textStyle } : Props) {
 	return (
 		<TouchableOpacity style={buttonStyle} onPress={onPressed} activeOpacity={0.85}>
 			<Text style={textStyle}>

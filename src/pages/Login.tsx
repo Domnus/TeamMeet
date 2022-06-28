@@ -1,26 +1,61 @@
-import { View, StyleSheet, Text, TextInput, Pressable } from "react-native";
-import { Button } from "../components/Button";
-import { Logo } from "../components/Logo";
+import { useState } from "react";
+import { View, StyleSheet, Text, TextInput, Pressable, ScrollView, Dimensions } from "react-native";
+import Button from "../components/Button";
+import Logo from "../components/Logo";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export function Login() {
+const win = Dimensions.get('window')
+const ratio = win.width / 248
+const height = win.height;
+
+export default function Login({ navigation } : any) {
+	const [passwordVisible, setPasswordVisible] = useState(false)
+	const [password, setPassword] = useState('')
+	const [email, setEmail] = useState('')
+
+	function updatePassword() {
+		setPasswordVisible(!passwordVisible)
+	}
 
 	let onPressed = () => {
 		console.log('hello')
 	}
 
 	return (
-		<View style={styles.view}>
-			<View style={styles.viewImage}><Logo viewStyle={styles.imageView} imageStyle={styles.imageStyle}/></View>
+		<ScrollView>
+			<View style={styles.view}>
+				<View style={styles.viewImage}><Logo viewStyle={styles.imageView} imageStyle={styles.imageStyle}/></View>
+					<View style={styles.formView}>
+						<Text style={styles.formText}>Email</Text>
+						<TextInput
+							style={styles.textEmailInput}
+							placeholder="roberto.seiti@gmail.com"
+							placeholderTextColor={styles.placeholder.color}
+							onChangeText={text => setEmail(text)}>
+						</TextInput>
 
-				<View style={styles.formView}>
-					<Text style={styles.formText}>Email</Text>
-					<TextInput style={styles.textInput} placeholder="roberto.seiti@gmail.com" placeholderTextColor={styles.placeholder.color}></TextInput>
-					<Text style={styles.formText}>Senha</Text>
-					<TextInput style={styles.textInput} placeholder='**************' placeholderTextColor={styles.placeholder.color}></TextInput>
-				</View>
-
-			<Button title='ENTRAR' onPressed={onPressed} buttonStyle={styles.buttonStyle} textStyle={styles.textButtonStyle}></Button>
-		</View>
+						<Text style={styles.formText}>Senha</Text>
+						<View style={styles.formPasswordView}>
+							<TextInput
+								style={styles.textPasswordInput}
+								placeholder='**************'
+								placeholderTextColor={styles.placeholder.color}
+								secureTextEntry={!passwordVisible}
+								autoCorrect={false}
+								onChangeText={text => setPassword(text)}>
+							</TextInput>
+							<Pressable onPress={updatePassword}>
+								<Icon name={passwordVisible ? 'eye-off' : 'eye'} size={30} color='white'/>
+							</Pressable>
+						</View>
+					</View>
+				<Button title='ENTRAR' onPressed={onPressed} buttonStyle={styles.buttonStyle} textStyle={styles.textButtonStyle}></Button>
+				<Text style={styles.textCadastro}>
+					Não tem uma conta?
+					<Text style={styles.textCadastroLink} onPress={() => navigation.navigate('Cadastro')}> Cadastre-se</Text>
+				</Text>
+			</View>
+		</ScrollView>
 	)
 }
 
@@ -28,23 +63,23 @@ const styles = StyleSheet.create({
 	view: {
 		flex: 1,
 		flexDirection: 'column',
+		alignSelf: 'center',
 		justifyContent: 'space-between',
-		width: '80%',
-		margin: 40
+		width: '100%',
+		height: height,
+		padding: '10%',
+		backgroundColor: '#810FCC',
 	},
 	viewImage: {
 		alignItems: 'center'
 	},
 	imageView: {
-		width: 122,
-		height: 55,
+		height: 100,
+		width: 129 * ratio, 
 	},
 	imageStyle: {
-		borderRadius: 5
-	},
-	text: {
-		color: '#FFFFFF',
-		fontSize: 24,
+		borderRadius: 5,
+		resizeMode: 'stretch'
 	},
 	placeholder: {
 		color: 'rgba(255, 255, 255, 0.8)'
@@ -54,20 +89,36 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		justifyContent: 'center'
 	},
+	formPasswordView: {
+		flexDirection:'row',
+		borderBottomWidth: 1,
+		borderColor: 'white',
+		alignItems: 'center'
+	},
 	formText: {
 		color: '#FFFFFF',
 		fontSize: 24,
 		marginTop: 20,
-		fontFamily: 'QuicksandMedium'
+		fontFamily: 'Quicksand'
 	},
-	textInput: {
+	textEmailInput: {
 		fontSize: 16,
 		borderBottomWidth: 1,
 		borderColor: 'white',
 		padding: 5,
 		color: 'white',
 		marginTop: 20,
-		fontFamily: 'QuicksandMedium'
+		fontFamily: 'Quicksand'
+	},
+	textPasswordInput: {
+		flexGrow: 1,
+		fontSize: 16,
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: 5,
+		color: 'white',
+		paddingTop: 20,
+		fontFamily: 'Quicksand'
 	},
 	buttonStyle: {
 		backgroundColor: 'white',
@@ -79,5 +130,14 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		color: '#810FCC',
 		fontFamily: 'QuicksandSemiBold',
+	},
+	textCadastro: {
+		alignSelf: 'center',
+		color: 'white',
+		paddingTop: 80,
+		fontFamily: 'Quicksand'
+	},
+	textCadastroLink: {
+		fontWeight: 'bold'
 	}
 })

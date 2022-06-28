@@ -5,7 +5,7 @@ type CustomProps = {
    imageStyle?: {}
 };
 
-export function Logo({viewStyle, imageStyle} : CustomProps) {
+export default function Logo({viewStyle, imageStyle} : CustomProps) {
 	return (
 		<ImageBackground source={require('../../assets/logo.png')} style={viewStyle} imageStyle={imageStyle}/>
 	)

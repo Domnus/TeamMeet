@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "team-meet",
+    "owner": "bentocarlos",
+    "name": "TeamMeet",
     "slug": "team-meet",
     "version": "1.0.0",
     "orientation": "portrait",
