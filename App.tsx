@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/pages/Login';
 import Cadastro from './src/pages/Cadastro';
 import { StatusBar } from 'expo-status-bar';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 const Stack = createNativeStackNavigator()
 
@@ -32,8 +33,10 @@ export default function Root() {
     <NavigationContainer>
       <SafeAreaProvider>
         <SafeAreaView style={styles.container}>
-          <StatusBar style="auto" />
-          <App />
+          <PaperProvider >
+            <StatusBar style="auto" />
+            <App />
+          </PaperProvider>
         </SafeAreaView>
       </SafeAreaProvider>
     </NavigationContainer>

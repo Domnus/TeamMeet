@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		width: '100%',
-		padding: 8,
+		padding: 16,
 	},
 	textStyle: {
 		fontSize: 28,
