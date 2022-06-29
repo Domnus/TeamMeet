@@ -1,19 +1,13 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, Pressable } from "react-native";
+import { ButtonProps } from "../models/Button";
 
-interface Props {
-	title: string,
-	onPressed: () => void,
-	buttonStyle: {},
-	textStyle: {}
-}
-
-export default function Button({ title, onPressed, buttonStyle, textStyle } : Props) {
+export default function Button({ title, onPressed, buttonStyle, textStyle } : ButtonProps) {
 	return (
-		<TouchableOpacity style={buttonStyle} onPress={onPressed} activeOpacity={0.85}>
+		<Pressable style={buttonStyle} onPress={onPressed} android_ripple={{color: '#810FCC'}}>
 			<Text style={textStyle}>
 				{title}
 			</Text>
-		</TouchableOpacity>
+		</Pressable>
 	)
 }

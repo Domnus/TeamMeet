@@ -3,12 +3,14 @@ import { View, StyleSheet, Text, TextInput, Pressable, ScrollView, Dimensions } 
 import Button from "../components/Button";
 import Logo from "../components/Logo";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { RootStackParamsList } from "../models/RootStackParamsList";
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 const win = Dimensions.get('window')
 const ratio = win.width / 248
 const height = win.height;
 
-export default function Login({ navigation } : any) {
+export default function Login({ navigation } : NativeStackScreenProps<RootStackParamsList, 'Login'>) {
 	const [passwordVisible, setPasswordVisible] = useState(false)
 	const [password, setPassword] = useState('')
 	const [email, setEmail] = useState('')
@@ -31,7 +33,7 @@ export default function Login({ navigation } : any) {
 							style={styles.textEmailInput}
 							placeholder="roberto.seiti@gmail.com"
 							placeholderTextColor={styles.placeholder.color}
-							onChangeText={text => setEmail(text)}>
+							onChangeText={(text: string) => setEmail(text)}>
 						</TextInput>
 
 						<Text style={styles.formText}>Senha</Text>
@@ -42,7 +44,7 @@ export default function Login({ navigation } : any) {
 								placeholderTextColor={styles.placeholder.color}
 								secureTextEntry={!passwordVisible}
 								autoCorrect={false}
-								onChangeText={text => setPassword(text)}>
+								onChangeText={(text: string) => setPassword(text)}>
 							</TextInput>
 							<Pressable onPress={updatePassword}>
 								<Icon name={passwordVisible ? 'eye-off' : 'eye'} size={30} color='white'/>
