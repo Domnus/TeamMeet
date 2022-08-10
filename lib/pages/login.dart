@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:supabase/supabase.dart';
 import 'dart:io';
 
-import '../../cadastro/view/cadastro_view.dart';
-import '../../main/view/main_view.dart';
+import '../data/connect.dart';
+import 'cadastro/cadastro_view.dart';
+import 'main.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -21,34 +20,6 @@ class LoginState extends State<Login> {
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
   late bool _senhaVisivel = false;
-
-  Future<bool> connect(String email, String senha) async {
-    final client = GetIt.instance<SupabaseClient>();
-    final response = await client
-        .from('admin')
-        .select()
-        .eq('email', email)
-        .single()
-        .execute();
-
-    final error = response.error;
-
-    if (error != null) {
-      return Future.value(false);
-    }
-
-    final data = response.data;
-
-    if (data != null) {
-      if (data['email'] == email && data['password'] == senha) {
-        return Future.value(true);
-      } else {
-        return Future.value(false);
-      }
-    }
-
-    return Future.value(false);
-  }
 
   @override
   void initState() {
@@ -211,20 +182,6 @@ class LoginState extends State<Login> {
                                     ),
                                   ),
                                 ),
-                                //Align(
-                                //  alignment: Alignment.centerRight,
-                                //  child: TextButton(
-                                //    onPressed: () {},
-                                //    child: Text(
-                                //      'Esqueci minha senha',
-                                //      style: TextStyle(
-                                //          color: Theme.of(context)
-                                //              .colorScheme
-                                //              .secondary),
-                                //      textAlign: TextAlign.right,
-                                //    ),
-                                //  ),
-                                //),
                               ],
                             ),
                             SizedBox(
@@ -278,33 +235,6 @@ class LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            //Text(
-                            //  'OU',
-                            //  style: TextStyle(
-                            //      color:
-                            //          Theme.of(context).colorScheme.secondary),
-                            //),
-                            //Row(
-                            //  mainAxisSize: MainAxisSize.max,
-                            //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            //  crossAxisAlignment: CrossAxisAlignment.center,
-                            //  children: [
-                            //    IconButton(
-                            //      onPressed: () {},
-                            //      icon: Image.asset(
-                            //          'assets/images/apple_logo.png',
-                            //          fit: BoxFit.contain),
-                            //      iconSize: 70,
-                            //    ),
-                            //    IconButton(
-                            //      onPressed: () {},
-                            //      icon: Image.asset(
-                            //          'assets/images/google_logo.png',
-                            //          fit: BoxFit.contain),
-                            //      iconSize: 70,
-                            //    ),
-                            //  ],
-                            //),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,

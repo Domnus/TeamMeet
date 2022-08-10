@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../login/view/login_view.dart';
+import '../../../pages/login.dart';
 
 class FinalCadastro extends StatelessWidget {
   const FinalCadastro({Key? key}) : super(key: key);

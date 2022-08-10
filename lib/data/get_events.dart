@@ -2,7 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:supabase/supabase.dart';
 
 import '../models/event.dart';
-import '../modules/perfil/view/perfil_view.dart';
+import 'get_user_data.dart';
 
 Future getEvents() async {
   final client = GetIt.instance<SupabaseClient>();

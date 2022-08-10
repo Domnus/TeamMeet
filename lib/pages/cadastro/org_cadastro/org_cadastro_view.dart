@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:team_meet/modules/cadastro/view/final_view.dart';
+
+import '../final_view.dart';
 
 class OrgCadastro extends StatefulWidget {
   const OrgCadastro({Key? key}) : super(key: key);

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:team_meet/data/get_orgs.dart';
 import 'package:team_meet/models/organizacao.dart';
-import 'package:team_meet/modules/cadastro/view/jogador_cadastro/jogador_email_view.dart';
+
+import 'jogador_email_view.dart';
 
 class JogadorCadastro extends StatefulWidget {
   const JogadorCadastro({Key? key}) : super(key: key);
@@ -80,39 +81,6 @@ class _JogadorCadastroState extends State<JogadorCadastro> {
                                             .secondary,
                                         fontSize: 24.00),
                                   ),
-                                  //TextField(
-                                  //  style: TextStyle(
-                                  //      color: Theme.of(context)
-                                  //          .colorScheme
-                                  //          .secondary),
-                                  //  decoration: InputDecoration(
-                                  //    hintText: "Pesquisar",
-                                  //    enabledBorder: UnderlineInputBorder(
-                                  //      borderSide: BorderSide(
-                                  //        color: Theme.of(context)
-                                  //            .colorScheme
-                                  //            .secondary,
-                                  //        width: 2,
-                                  //      ),
-                                  //      borderRadius: const BorderRadius.only(
-                                  //        topLeft: Radius.circular(4.0),
-                                  //        topRight: Radius.circular(4.0),
-                                  //      ),
-                                  //    ),
-                                  //    focusedBorder: UnderlineInputBorder(
-                                  //      borderSide: BorderSide(
-                                  //        color: Theme.of(context)
-                                  //            .colorScheme
-                                  //            .secondary,
-                                  //        width: 2,
-                                  //      ),
-                                  //      borderRadius: const BorderRadius.only(
-                                  //        topLeft: Radius.circular(4.0),
-                                  //        topRight: Radius.circular(4.0),
-                                  //      ),
-                                  //    ),
-                                  //  ),
-                                  //),
                                 ],
                               ),
                               SizedBox(

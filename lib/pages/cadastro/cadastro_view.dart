@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:team_meet/modules/cadastro/view/jogador_cadastro/jogador_cadastro_view.dart';
-import 'package:team_meet/modules/cadastro/view/org_cadastro/org_cadastro_view.dart';
+
+import 'jogador_cadastro/jogador_cadastro_view.dart';
+import 'org_cadastro/org_cadastro_view.dart';
 
 class Cadastro extends StatelessWidget {
   const Cadastro({Key? key}) : super(key: key);

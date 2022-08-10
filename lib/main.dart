@@ -3,8 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:supabase/supabase.dart';
-import 'modules/login/view/login_view.dart';
-import 'modules/main/view/main_view.dart';
+import 'pages/login.dart';
+import 'pages/main.dart';
 import 'themes/main_theme.dart';
 import 'package:flutter/services.dart';
 

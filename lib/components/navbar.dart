@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:team_meet/modules/feedback/view/feedback_view.dart';
-import 'package:team_meet/modules/perfil/view/perfil_view.dart';
-import '../../agenda/view/agenda_view.dart';
-import '../../settings/view/ajustes_view.dart';
 
-class Main extends StatefulWidget {
-  const Main({Key? key}) : super(key: key);
+import '../pages/agenda.dart';
+import '../pages/ajustes.dart';
+import '../pages/feedback/feedback_view.dart';
+import '../pages/perfil.dart';
+
+
+class Navbar extends StatefulWidget {
+  const Navbar({Key? key}) : super(key: key);
 
   @override
-  State<Main> createState() => _MainState();
+  State<Navbar> createState() => _NavbarState();
 }
 
-class _MainState extends State<Main> with SingleTickerProviderStateMixin {
+class _NavbarState extends State<Navbar> {
   int _selectedIndex = 0;
 
   static final List _views = [
@@ -34,23 +36,9 @@ class _MainState extends State<Main> with SingleTickerProviderStateMixin {
     });
   }
 
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).colorScheme.secondary,
       appBar: AppBar(

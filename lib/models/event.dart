@@ -1,4 +1,3 @@
-
 class Event {
   String title;
   String data;
@@ -10,5 +9,3 @@ class Event {
     this.horario
   );
 }
-
-

@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:supabase/supabase.dart';
 import '../models/user.dart';
-import '../modules/perfil/view/perfil_view.dart';
 import 'get_user.dart';
+import 'get_user_data.dart';
 
 Future<bool> saveData(String dataType, info) async {
   final client = GetIt.instance<SupabaseClient>();

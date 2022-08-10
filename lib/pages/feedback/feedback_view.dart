@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:team_meet/modules/feedback/view/feedback_confirmado_view.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+
+import 'feedback_confirmado_view.dart';
 
 class FeedbackJogador extends StatelessWidget {
   FeedbackJogador({Key? key}) : super(key: key);

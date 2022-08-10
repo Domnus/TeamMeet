@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:team_meet/data/get_events.dart';
 import 'package:team_meet/data/save_data.dart';
-import '../../../models/event.dart';
+import '../models/event.dart';
 
 class Agenda extends StatefulWidget {
   const Agenda({Key? key}) : super(key: key);

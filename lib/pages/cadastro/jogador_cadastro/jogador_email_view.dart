@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:team_meet/modules/cadastro/view/final_view.dart';
+
+import '../final_view.dart';
 
 class JogadorEmail extends StatefulWidget {
   const JogadorEmail({Key? key}) : super(key: key);
